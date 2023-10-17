@@ -12,16 +12,31 @@ $arrayMisto[5]= 666;
 echo $arrayMisto[5] . ' '. $arrayMisto[1] . '<br>' ;
 
 
-$numeros = [12, 55, 1, 234, 356];
+$numeros = ['M', 'F', 'N/C', 'F', 'F', 'M', 'A'];
 
 $frutas = ["banana", "abacaxi", "laranja"];
-$total = 0;
+$totalM = 0;
+$totalF = 0;
+$totalA = 0;
 foreach($numeros as $value){
-    if($value % 2 == 0){
-        echo "Valor Par $value  <br>";
-    }
-    else{
-        echo "Valor Impar $value <br>";
-    }
+   switch ($value) {
+    case 'M':
+        $totalM++;
+    break;       
+    case 'F':
+        $totalF++;
+    break;
+    case 'N/C':
+        $totalA++;
+    break;
+    case 'A':
+        $totalA++;
+    break;
+    default:   
+     
+   }
    
 }
+echo "Masculino: $totalM <br>";
+echo "Feminino: $totalF <br>";
+echo "Outros: $totalA ";
