@@ -85,11 +85,11 @@ foreach ($programadores as $elemento) {
     echo "<b> <i>CONHECIMENTO: </i></b> <br> ";
     
     foreach ($elemento['CONHECIMENTO'] as $linguagem) {
-        if($elemento['CONHECIMENTO'] == []){
-           echo "SEM CONHECIMENTO";
+        if($linguagem == true){
+            echo "{$linguagem} <br>"; 
         }        
         else {
-            echo "{$linguagem} <br>"; 
+            echo "SEM CONHECIMENTO";
         }              
     }
     if($elemento['IDADE'] >= 30){
