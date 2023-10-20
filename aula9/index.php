@@ -66,8 +66,8 @@ $programador =[
 $programadores[] = $programador;
 
 $programador =[
-    "NOME" => "Maiara",
-    "IDADE" => 18,
+    "NOME" => "Felipe",
+    "IDADE" => 19,
     "SEXO" => "F",
     "CONHECIMENTO" => [],
     "EMPRESAS" => [
