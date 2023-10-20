@@ -85,15 +85,15 @@ foreach ($programadores as $elemento) {
     echo "NOME: ". $elemento['NOME'] ."<br>";
     echo "IDADE: ". $elemento['IDADE'] . "  <br>";
     echo "<b> <i>CONHECIMENTO: </i></b> <br> ";
-    
-    foreach ($elemento['CONHECIMENTO'] as $linguagem) {
-        if($linguagem == [] ){
-            echo "SEM CONHECIMENTO";
-        }        
-        else {
-           
-            echo "{$linguagem} <br>";
-        }              
+    // Verifica se o array conhecimento tem dados
+    if($elemento['CONHECIMENTO'] == [] ){
+        echo "<b>SEM CONHECIMENTO </b> <br>";
+    } 
+    // Aqui é se o array tem dados 
+    else{
+        foreach ($elemento['CONHECIMENTO'] as $linguagem) {
+        echo "{$linguagem} <br>";                
+        }
     }
     if($elemento['IDADE'] >= 30){
         $maior30++;
@@ -116,15 +116,16 @@ foreach ($programadores as $elemento) {
     else: 
         echo "<b> SEM EXPERIÊNCIA </b> <br>";
     endif;
-    $totalexp = 0;
+    $totalexp = 0; // Após somar o total dos tês valores da variavel tempo, zera para somar novamente
     echo "------------------------------------- <br>";
+    // switch case para verificar quantos pessoas tem de cada sexo
     switch ($elemento['SEXO']) {
         case 'F':
-            $totalf++;
+            $totalf++; //adiciona 1 à variavel totalf
             break;
         
         case 'M':
-            $totalm++;
+            $totalm++; //adiciona 1 à variavel totalm
             break;
     }
 }
