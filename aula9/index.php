@@ -58,7 +58,9 @@ $programador =[
     "NOME" => "Maiara",
     "IDADE" => 18,
     "SEXO" => "F",
-    "CONHECIMENTO" => [],
+    "CONHECIMENTO" => [
+        "JAVA", "EXPRESS.JS", "JAVASCRIPT"
+    ],
     "EMPRESAS" => []
 ];
 $programadores[] = $programador;
@@ -85,11 +87,12 @@ foreach ($programadores as $elemento) {
     echo "<b> <i>CONHECIMENTO: </i></b> <br> ";
     
     foreach ($elemento['CONHECIMENTO'] as $linguagem) {
-        if($linguagem == true){
-            echo "{$linguagem} <br>"; 
+        if($linguagem == [] ){
+            echo "SEM CONHECIMENTO";
         }        
         else {
-            echo "SEM CONHECIMENTO";
+           
+            echo "{$linguagem} <br>";
         }              
     }
     if($elemento['IDADE'] >= 30){
