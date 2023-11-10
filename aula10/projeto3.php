@@ -106,23 +106,23 @@ $total_valor_teste2 = 0;
 foreach($vendas as $elemento){  
     if($elemento['codigo_cliente'] == "001") {
         $total_zeroum += $elemento['valor_total'];
-        $total_desconto_zeroum += $elemento['desconto'];        
-        foreach ($elemento['itens'] as $desc){
-            if($desc['descricao'] == "Produto teste 1"){
-                    $total_unidade_teste1 += $desc['qtde'];
-                    $total_valor_teste1 += $desc['valor_total'];
-                }
-            else{
-                $total_unidade_teste2 += $desc['qtde'];
-                $total_valor_teste2 += $desc['valor_total'];
-            }
-        }
+        $total_desconto_zeroum += $elemento['desconto'];       
+        
     }
     else {
         $total_zerodois += $elemento['valor_total'];
         $total_desconto_zerodois += $elemento['desconto'];
     }
-    
+    foreach ($elemento['itens'] as $desc){
+        if($desc['descricao'] == "Produto teste 1"){
+                $total_unidade_teste1 += $desc['qtde'];
+                $total_valor_teste1 += $desc['valor_total'];
+            }
+        else{
+            $total_unidade_teste2 += $desc['qtde'];
+            $total_valor_teste2 += $desc['valor_total'];
+        }
+    }
     if($elemento['forma_pagamento'] == "DINHEIRO"){
         $total_dinheiro += $elemento['valor_total'];
     }
