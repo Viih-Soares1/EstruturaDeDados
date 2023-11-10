@@ -119,8 +119,7 @@ foreach ($pacientes as $elemento) {
                 break;
            
         }
-    }     
-      
+    }       
 
     
 
@@ -130,11 +129,12 @@ foreach ($pacientes as $elemento) {
 
 echo "<p>Total de pacientes que entraram no hospital é de $total_de_pacientes</p>";
 echo "<p>Total de pacientes na recepção $recepcao</p>";
-echo "<p>Nomes Joana atendeu $total_j </p>";
-echo "<p>Nomes Pedro atendeu $total_pedro</p>";
-echo "<p>Nomes Kelly$total_k</p>";
-echo "<p>Nomes Marcos $total_mar</p>";
-echo "<p>Nomes Paula $total_p</p>";
+echo "<p>Atendimento de cada médico: <br> </p>";
+echo "<p>Joana: $total_j </p>";
+echo "<p>Pedro: $total_pedro</p>";
+echo "<p>Kelly: $total_k</p>";
+echo "<p>Marcos: $total_mar</p>";
+echo "<p>Paula: $total_p</p>";
 
 
 
