@@ -11,6 +11,7 @@ $msg = '';
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $idade = $_POST["idade"];
+$datanasci = $_POST["data_nascimento"];
 if ($nome == ''){
    $msg = 'Informe o nome <br>';
 } 
@@ -22,4 +23,7 @@ if($msg != ''){
 }
 if(!is_numeric($idade)){
     $msg.= 'Informe a idade <br>';
+}
+if(date($datanasci) == true){
+    $msg .="Informe a Data de Nascimento";
 }

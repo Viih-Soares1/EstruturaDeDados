@@ -10,8 +10,7 @@
 
 <body>
     <form method="post" action="gravar.php">
-        <input type="text" name="nome" placeholder="Informe seu nome">
-        <input type="text" name="data_brasil" placeholder="Informe a Data">
+        <input type="text" name="nome" placeholder="Informe seu nome">       
         <input type="date" name="data_nascimento">
         <input type="number" name="idade" placeholder="Informe sua idade">
         <input type="email" name="email" placeholder="Informe seu email">
@@ -29,6 +28,19 @@
         <label for="possui_faculdade">
             <input type="checkbox" id="possui_faculdade" name="facul">
             Possui Faculdade</label>
+            <p> LINGUAGENS:</p>
+        <label for="php">
+            <input type="checkbox" name="linguagens[]" id="php" value="PHP">PHP
+        </label>
+        <label for="java">
+            <input type="checkbox" name="linguagens[]" id="java" value="JAVA">JAVA
+        </label>
+        <label for="c">
+            <input type="checkbox" name="linguagens[]" id="c" value="C#">C#
+        </label>
+        <label for="ruby">
+            <input type="checkbox" name="linguagens[]" id="ruby" value="RUBY">RUBY
+        </label>
         <button type="submit"> Gravar </button>
 
     </form>
