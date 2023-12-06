@@ -46,14 +46,15 @@ if($msg != ''){
 }
 
 $cliente = [
-    'nome' => "$nome",
-    'email' => "$email",
-    'data' => "$datanasci",
-    'idade' => "$idade",
-    'sexo' => "$sexo",
-    'UF' => "$uf",
-    'faculdade' => "$faculdade",
+    'nome' => $nome,
+    'email' => $email,
+    'data' => $datanasci,
+    'idade' => $idade,
+    'sexo' => $sexo,
+    'UF' => $uf,
+    'faculdade' => $faculdade,
     'linguagens' => $linguagens      ];
 
 echo json_encode($cliente, JSON_UNESCAPED_UNICODE);
-
+echo "<br>";
+echo json_encode($_POST);
