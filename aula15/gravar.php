@@ -16,7 +16,7 @@ $uf = isset($_POST["uf"]) ? $_POST["uf"] : '';
 $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : '';
 $linguagens = isset($_POST["linguagens"]) ? $_POST["linguagens"] : '';
 $faculdade = isset($_POST["facul"]) ? $_POST["facul"] : '';
-$cliente = [];
+
 
 if ($nome == ''){
    $msg = 'Informe o nome <br>';
@@ -28,7 +28,7 @@ if ($email == ''){
 if(!is_numeric($idade)){
     $msg.= 'Informe a idade <br>';
 }
-if(date($datanasci) == true){
+if(date($datanasci) == ''){
     $msg .="Informe a Data de Nascimento";
 }
 if($uf == ''){
@@ -44,8 +44,8 @@ if($msg != ''){
     echo $msg;
     echo  "<button onclick=\"javascript:window.location.href='cadastro.html'\">Voltar ao formulário</button> <br>";
 }
-
-$cliente = [
+$codigo = rand(1,10);
+$cliente = [       
     'nome' => $nome,
     'email' => $email,
     'data' => $datanasci,
@@ -55,6 +55,24 @@ $cliente = [
     'faculdade' => $faculdade,
     'linguagens' => $linguagens      ];
 
-echo json_encode($cliente, JSON_UNESCAPED_UNICODE);
-echo "<br>";
-echo json_encode($_POST);
+define('DIRETORIO_CADASTRO', './cadastro');
+
+$codigo = rand(1,10);
+
+$cliente_json = json_encode($cliente, JSON_UNESCAPED_UNICODE);
+if (! file_exists(DIRETORIO_CADASTRO))
+    mkdir(DIRETORIO_CADASTRO);
+// if (! $email == false){
+// 1- abre o arquivo
+$recurso = fopen(DIRETORIO_CADASTRO ."/cliente-$codigo".$cliente['hash'].".json", 'w');
+
+// 2 - escreve no arquivo
+fwrite($recurso, $cliente_json);
+
+// 3- fecha o arquivo
+
+fclose($recurso);
+// }
+// else{
+//     echo "<p> Este Email já existe";
+// }
