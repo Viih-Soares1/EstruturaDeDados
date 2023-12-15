@@ -1,7 +1,13 @@
 <?php 
+function Ler_Arquivo($arquivo){   
+    $resource = fopen($arquivo, 'r'); 
+    $dados = fread($resource, filesize($arquivo));
+    fclose($resource);
+    return $dados;
+}
 define('DIRETORIO_CADASTRO', './cadastro');
 $id = isset($_POST["id"]) ? $_POST["id"] : '';
-$descricao = $_POST["descricao"];
+$nome = $_POST["nome"];
 $msg = '';
 if(strlen($descricao) < 4){
     $msg = "Descrição menor que quatro caracteres<br>";
@@ -31,5 +37,35 @@ else{
 
     fwrite($recurso, $json );
 
+
     fclose($recurso);
 }
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th> Nome </th>
+            <th> Idade </th>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td> <?= $arquivo->nome ?> </td>
+                <td> <?= $arquivo->idade ?> </td>            
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

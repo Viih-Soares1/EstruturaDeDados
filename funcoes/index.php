@@ -45,3 +45,20 @@ function meses_do_ano($mesnumero){
     ];
     return ($mes[$mesnumero -1]);
 }
+
+
+function Gravar_arquivo($conteudo,$codigo){
+    $recurso = fopen("./cadastro-$codigo.json" , 'w');
+
+    fwrite($recurso, $conteudo );
+
+    fclose($recurso);    
+    
+}
+
+function Ler_Arquivo($arquivo){   
+    $resource = fopen($arquivo, 'r'); 
+    $dados = fread($resource, filesize($arquivo));
+    fclose($resource);
+    return $dados;
+}
