@@ -9,7 +9,7 @@ define('DIRETORIO_CADASTRO', './cadastro');
 $id = isset($_POST["id"]) ? $_POST["id"] : '';
 $nome = $_POST["nome"];
 $msg = '';
-if(strlen($descricao) < 4){
+if(strlen($nome) < 4){
     $msg = "Descrição menor que quatro caracteres<br>";
 }
 if ($id == ''){
@@ -24,7 +24,7 @@ if ($msg != '' ){
 else{
     $cadastro = [
         'id' => $id,
-        'descricao' => $descricao
+        'descricao' => $nome
     ];
 
     if (! file_exists(DIRETORIO_CADASTRO))
@@ -33,7 +33,7 @@ else{
 
     $json = json_encode($cadastro, JSON_UNESCAPED_UNICODE);
     
-    $recurso = fopen(DIRETORIO_CADASTRO . "/cadastro-$id.json" , 'a');
+    $recurso = fopen(DIRETORIO_CADASTRO . "/cadastro-$id.json" , 'w');
 
     fwrite($recurso, $json );
 
@@ -45,27 +45,3 @@ else{
 
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table>
-        <thead>
-            <th> Nome </th>
-            <th> Idade </th>
-        </thead>
-        <tbody>
-            
-            <tr>
-                <td> <?= $arquivo->nome ?> </td>
-                <td> <?= $arquivo->idade ?> </td>            
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>

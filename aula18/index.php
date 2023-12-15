@@ -10,7 +10,6 @@ function Gravar_arquivo($conteudo,$codigo){
     fclose($recurso);    
     
 }
-
 function Ler_Arquivo($arquivo){   
     $resource = fopen($arquivo, 'r'); 
     $dados = fread($resource, filesize($arquivo));
@@ -18,27 +17,22 @@ function Ler_Arquivo($arquivo){
     return $dados;
 }
 
-$nome_arquivo = './cadastro/cliente-.json';
-$arquivo =json_decode(Ler_Arquivo($nome_arquivo));
-
-
-foreach($arquivo as $value){
-    echo $value;
-}
-
-
 // LISTAR ARQUIVOS
 $diretorio = './cadastro';
 
-$resource = opendir($diretorio);
-while($file = readdir($resource)){
-    echo "Filename:  $file <br>";
-} 
+$recurso = opendir($diretorio);
+while($file = readdir($recurso)){  
+    echo $file{id};
+//    if(! file_exists($file)){
+//       $dados = json_decode(Ler_Arquivo($file));
+//       echo $dados;
+//     }
+}
 
-closedir($resource);
+closedir($recurso);
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,10 +48,10 @@ closedir($resource);
         <tbody>
             
             <tr>
-                <td> <?= $arquivo->nome ?> </td>
-                <td> <?= $arquivo->idade ?> </td>            
+                <td> </td>
+                <td> </td>            
             </tr>
         </tbody>
     </table>
 </body>
-</html>
+</html> -->
